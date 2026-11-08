@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Syed Abdul Kadar — web development intern at ApnoAI. Landing pages, responsive layouts and clean, accessible front-end code built with HTML and CSS." />
+  <meta name="author" content="Syed Abdul Kadar" />
+  <meta name="theme-color" content="#161616" />
+  <meta name="color-scheme" content="dark light" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Syed Abdul Kadar — Web Developer" />
+  <meta property="og:description" content="ApnoAI web development intern. Four sections, responsive layout, dark-mode toggle." />
+  <meta name="twitter:card" content="summary" />
+
+  <title>Syed Abdul Kadar — Web Developer</title>
+
+  <!-- Inline favicon, no extra file needed -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%235531ff'/><text x='50' y='70' font-family='Arial,Helvetica,sans-serif' font-size='54' font-weight='700' text-anchor='middle' fill='white'>S</text></svg>" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wdth,wght@8..144,25..151,100..1000&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Theme and JS flag before paint: the reference opens dark; a saved choice wins. -->
+  <script>
+    (function () {
+      document.documentElement.classList.add('js');
+      try {
+        var saved = localStorage.getItem('theme');
+        document.documentElement.dataset.theme = saved === 'light' ? 'light' : 'dark';
+      } catch (e) { /* private mode: keep the dark default */ }
+    })();
+  </script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ============================================================
+       HEADER — burger, centred wordmark, theme toggle
+  ============================================================ -->
+  <header class="site-header" id="site-header">
+    <div class="header-bg" aria-hidden="true"></div>
+
+    <div class="header-bar">
+      <div class="header-slot header-slot--left">
+        <button class="menu-toggle" id="menu-toggle" type="button"
+                aria-label="Open menu" aria-expanded="false" aria-controls="menu-panel">
+          <span class="menu-icon" aria-hidden="true">
+            <svg class="icon-open" viewBox="0 0 24 24" fill="none">
+              <path d="M21 4.5H3V6h18V4.5ZM21 18H3v1.5h18V18ZM21 9H3v1.5h18V9ZM21 13.5H3V15h18v-1.5Z" fill="currentColor"/>
+            </svg>
+            <svg class="icon-close" viewBox="0 0 24 24" fill="none">
+              <path d="M18 7.05 16.95 6 12 10.95 7.05 6 6 7.05 10.95 12 6 16.95 7.05 18 12 13.05 16.95 18 18 16.95 13.05 12 18 7.05Z" fill="currentColor"/>
+            </svg>
+          </span>
+        </button>
+      </div>
+
+      <div class="header-slot header-slot--link">
+        <a class="header-link" href="#about">About</a>
+      </div>
+
+      <div class="header-slot header-slot--logo">
+        <a class="wordmark" href="#home" aria-label="Syed Abdul Kadar — back to top">abdulkadar</a>
+      </div>
+
+      <div class="header-slot header-slot--link">
+        <a class="header-link" href="#services">Services</a>
+      </div>
+
+      <div class="header-slot header-slot--right">
+        <a class="icon-btn" href="#contact" aria-label="Contact" title="Contact">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <rect x="2.5" y="4.5" width="19" height="15" rx="2.5" stroke="currentColor" stroke-width="1.5"/>
+            <path d="m3.5 7 8.5 6 8.5-6" stroke="currentColor" stroke-width="1.5"/>
+          </svg>
+        </a>
+        <button class="icon-btn theme-toggle" id="theme-toggle" type="button"
+                aria-label="Switch to light mode" aria-pressed="true">
+          <svg viewBox="0 0 22 22" fill="none" aria-hidden="true">
+            <circle cx="11" cy="11" r="9.25" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M11 1.75a9.25 9.25 0 0 0 0 18.5V1.75Z" fill="currentColor"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Dropdown navigation -->
+    <div class="menu-panel" id="menu-panel" data-lenis-prevent>
+      <div class="menu-inner wrap-wide">
+        <div class="menu-grid">
+          <div class="menu-col">
+            <p class="menu-label">Sections</p>
+            <ul class="menu-list">
+              <li><a href="#home">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#services">Services</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+
+          <div class="menu-col">
+            <p class="menu-label">Services</p>
+            <ul class="menu-list">
+              <li><a href="#services">Landing pages</a></li>
+              <li><a href="#services">Responsive layouts</a></li>
+              <li><a href="#services">CSS clean-ups</a></li>
+              <li><a href="#services">Dark mode</a></li>
+            </ul>
+          </div>
+
+          <div class="menu-col">
+            <p class="menu-label">Elsewhere</p>
+            <ul class="menu-list">
+              <li><a href="mailto:abdulkadar4416@gmail.com">Email</a></li>
+              <!-- TODO: replace with your real GitHub profile link -->
+              <li><a href="https://github.com/" target="_blank" rel="noopener">GitHub</a></li>
+              <!-- TODO: replace with your real phone number -->
+              <li><a href="tel:+910000000000">Phone</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="menu-connect">
+          <span class="menu-label">Connect</span>
+          <ul class="menu-connect-list">
+            <li><a href="mailto:abdulkadar4416@gmail.com">abdulkadar4416@gmail.com</a></li>
+            <li><a href="#contact">India · IST</a></li>
+            <li><a href="#contact">Open to internships</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <!-- ============================================================
+         01 — HOME
+    ============================================================ -->
+    <section class="section hero-section" id="home" aria-labelledby="hero-title">
+      <div class="hero-block reveal" data-hero>
+        <span class="hero-corner hero-corner--tl">01 — Home</span>
+        <span class="hero-corner hero-corner--tr"><span class="pill-outline">Portfolio 2026</span></span>
+
+        <h1 class="hero-title" id="hero-title" aria-label="Syed Abdul Kadar">
+          <span class="hero-line" aria-hidden="true">Syed</span>
+          <span class="hero-line" aria-hidden="true">Abdul</span>
+          <span class="hero-line" aria-hidden="true">Kadar</span>
+        </h1>
+
+        <span class="hero-corner hero-corner--bl mono">HTML · CSS · JS</span>
+        <span class="hero-corner hero-corner--br mono">India — IST</span>
+      </div>
+
+      <div class="center-cta reveal" style="--reveal-delay: 500ms">
+        <a class="pill pill--primary" href="#services">
+          <span class="pill-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M13.5 4.5 12.43 5.54 18.11 11.25H3v1.5h15.11l-5.68 5.68L13.5 19.5 21 12l-7.5-7.5Z" fill="currentColor"/></svg>
+          </span>
+          <span>Explore my services</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         02 — ABOUT / CASE STUDIES
+    ============================================================ -->
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="wrap-full">
+        <p class="kicker reveal">02 — About</p>
+        <h2 class="sr-only" id="about-title">About Syed Abdul Kadar</h2>
+
+        <div class="case-grid">
+          <article class="case reveal">
+            <a class="case-media case-media--violet" href="#contact" aria-label="About Syed Abdul Kadar — get in touch">
+              <span class="case-pill">About</span>
+              <span class="case-display" aria-hidden="true">SAK</span>
+              <span class="case-note mono">Web developer</span>
+              <span class="case-note case-note--br mono">India</span>
+            </a>
+            <h3 class="case-title">Syed Abdul Kadar</h3>
+            <dl class="case-meta">
+              <div>
+                <dt>Role</dt>
+                <dd>Web Dev Intern</dd>
+              </div>
+              <div>
+                <dt>Company</dt>
+                <dd>ApnoAI</dd>
+              </div>
+            </dl>
+          </article>
+
+          <article class="case reveal" style="--reveal-delay: 80ms">
+            <a class="case-media case-media--coral" href="#services" aria-label="My approach — see the services">
+              <span class="case-pill">Approach</span>
+              <span class="case-display" aria-hidden="true">Build</span>
+              <span class="case-note mono">Learn in public</span>
+              <span class="case-note case-note--br mono">2026</span>
+            </a>
+            <h3 class="case-title">Learning by building.</h3>
+            <dl class="case-meta">
+              <div>
+                <dt>Focus</dt>
+                <dd>Frontend</dd>
+              </div>
+              <div>
+                <dt>Stack</dt>
+                <dd>HTML · CSS</dd>
+              </div>
+            </dl>
+          </article>
+        </div>
+
+        <div class="about-copy reveal">
+          <p class="about-lead">I turn blank files into pages people can actually read, click and use.</p>
+          <div class="about-body">
+            <p>
+              I'm <strong>Syed Abdul Kadar</strong>, a web development intern at ApnoAI.
+              I like the part of programming where a plain text file slowly becomes
+              something real — with headings, spacing, colour and a layout that behaves.
+            </p>
+            <p>
+              This site is my first internship task: four sections, a Flexbox layout,
+              a mobile-friendly menu and a dark-mode toggle. My next goals are JavaScript
+              and React, so I can make pages that do more than look good.
+            </p>
+            <p>
+              I care about simple design, readable text and code another beginner could
+              open and understand.
+            </p>
+            <ul class="chips" aria-label="Skills">
+              <li>HTML5</li>
+              <li>CSS3</li>
+              <li>Flexbox</li>
+              <li>Responsive design</li>
+              <li>Git &amp; GitHub</li>
+              <li>Vercel</li>
+              <li>Accessibility</li>
+              <li>Dark mode</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="center-cta reveal">
+          <a class="pill pill--primary" href="#services">
+            <span class="pill-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M13.5 4.5 12.43 5.54 18.11 11.25H3v1.5h15.11l-5.68 5.68L13.5 19.5 21 12l-7.5-7.5Z" fill="currentColor"/></svg>
+            </span>
+            <span>See what I can build</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         03 — SERVICES / SPECIMEN GRID
+    ============================================================ -->
+    <section class="section" id="services" aria-labelledby="services-title">
+      <div class="wrap-full">
+        <p class="kicker reveal">03 — Services</p>
+        <h2 class="sr-only" id="services-title">Services</h2>
+
+        <div class="specimen-grid">
+          <article class="specimen reveal" style="--tile-bg: #0066ff; --tile-fg: #ffffff">
+            <a class="specimen-link" href="#contact" aria-label="Landing pages — four sections, responsive, deployed on Vercel">
+              <span class="specimen-name mono">Landing pages</span>
+              <span class="specimen-pill">Build</span>
+              <span class="specimen-display" aria-hidden="true">Landing</span>
+              <span class="specimen-data mono">4 sections<br>Responsive<br>Live on Vercel</span>
+              <span class="specimen-index mono">01</span>
+            </a>
+          </article>
+
+          <article class="specimen reveal" style="--tile-bg: #ff4314; --tile-fg: #ffffff; --reveal-delay: 60ms">
+            <a class="specimen-link" href="#contact" aria-label="Responsive layouts — tested from 360 to 1440 pixels with Flexbox">
+              <span class="specimen-name mono">Responsive layouts</span>
+              <span class="specimen-pill">Layout</span>
+              <span class="specimen-display" aria-hidden="true">Responsive</span>
+              <span class="specimen-data mono">360 → 1440<br>Flexbox<br>Fluid type</span>
+              <span class="specimen-index mono">02</span>
+            </a>
+          </article>
+
+          <article class="specimen reveal" style="--tile-bg: #5a00fa; --tile-fg: #ffffff; --reveal-delay: 120ms">
+            <a class="specimen-link" href="#contact" aria-label="CSS clean-ups — overflow, spacing and type fixes">
+              <span class="specimen-name mono">CSS clean-ups</span>
+              <span class="specimen-pill">Fix</span>
+              <span class="specimen-display" aria-hidden="true">Clean-up</span>
+              <span class="specimen-data mono">Overflow<br>Spacing<br>Type</span>
+              <span class="specimen-index mono">03</span>
+            </a>
+          </article>
+
+          <article class="specimen reveal" style="--tile-bg: #00024f; --tile-fg: #ffffff">
+            <a class="specimen-link" href="#contact" aria-label="Dark mode — saved preference, system aware, accessible toggle">
+              <span class="specimen-name mono">Dark mode</span>
+              <span class="specimen-pill">Theme</span>
+              <span class="specimen-display" aria-hidden="true">Dark mode</span>
+              <span class="specimen-data mono">Saved<br>System aware<br>Toggle</span>
+              <span class="specimen-index mono">04</span>
+            </a>
+          </article>
+
+          <article class="specimen reveal" style="--tile-bg: #ff99ff; --tile-fg: #161616; --reveal-delay: 60ms">
+            <a class="specimen-link" href="#contact" aria-label="Accessibility — focus states, labels and contrast">
+              <span class="specimen-name mono">Accessibility</span>
+              <span class="specimen-pill">A11y</span>
+              <span class="specimen-display" aria-hidden="true">Access</span>
+              <span class="specimen-data mono">Focus<br>Labels<br>Contrast</span>
+              <span class="specimen-index mono">05</span>
+            </a>
+          </article>
+
+          <article class="specimen reveal" style="--tile-bg: #ffff00; --tile-fg: #161616; --reveal-delay: 120ms">
+            <a class="specimen-link" href="#contact" aria-label="Deployment — GitHub to Vercel, step by step">
+              <span class="specimen-name mono">Deployment</span>
+              <span class="specimen-pill">Ship</span>
+              <span class="specimen-display" aria-hidden="true">Deploy</span>
+              <span class="specimen-data mono">GitHub<br>Vercel<br>Domain</span>
+              <span class="specimen-index mono">06</span>
+            </a>
+          </article>
+        </div>
+
+        <div class="center-cta reveal">
+          <a class="pill pill--primary" href="#contact">
+            <span class="pill-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M13.5 4.5 12.43 5.54 18.11 11.25H3v1.5h15.11l-5.68 5.68L13.5 19.5 21 12l-7.5-7.5Z" fill="currentColor"/></svg>
+            </span>
+            <span>Start a project</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         04 — CONTACT / BANNERS
+    ============================================================ -->
+    <section class="section" id="contact" aria-labelledby="contact-title">
+      <div class="wrap-full">
+        <p class="kicker reveal">04 — Contact</p>
+        <h2 class="sr-only" id="contact-title">Contact</h2>
+
+        <div class="banner-stack">
+          <div class="banner banner--violet reveal">
+            <h3 class="banner-title">Say hello</h3>
+            <div class="banner-actions">
+              <a class="pill pill--primary" href="mailto:abdulkadar4416@gmail.com">
+                <span class="pill-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none"><path d="M13.5 4.5 12.43 5.54 18.11 11.25H3v1.5h15.11l-5.68 5.68L13.5 19.5 21 12l-7.5-7.5Z" fill="currentColor"/></svg>
+                </span>
+                <span>Email me</span>
+              </a>
+            </div>
+            <p class="banner-meta mono">abdulkadar4416@gmail.com</p>
+          </div>
+
+          <div class="banner banner--coral reveal">
+            <h3 class="banner-title">GitHub</h3>
+            <div class="banner-actions">
+              <!-- TODO: replace with your real GitHub profile link -->
+              <a class="pill pill--primary" href="https://github.com/" target="_blank" rel="noopener">
+                <span class="pill-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none"><path d="M13.5 4.5 12.43 5.54 18.11 11.25H3v1.5h15.11l-5.68 5.68L13.5 19.5 21 12l-7.5-7.5Z" fill="currentColor"/></svg>
+                </span>
+                <span>View profile</span>
+              </a>
+            </div>
+            <p class="banner-meta mono">github.com</p>
+          </div>
+
+          <div class="banner banner--yellow reveal">
+            <h3 class="banner-title">Call me</h3>
+            <div class="banner-actions">
+              <!-- TODO: replace with your real phone number -->
+              <a class="pill pill--primary" href="tel:+910000000000">
+                <span class="pill-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none"><path d="M13.5 4.5 12.43 5.54 18.11 11.25H3v1.5h15.11l-5.68 5.68L13.5 19.5 21 12l-7.5-7.5Z" fill="currentColor"/></svg>
+                </span>
+                <span>Call now</span>
+              </a>
+            </div>
+            <p class="banner-meta mono">+91 00000 00000</p>
+          </div>
+        </div>
+
+        <p class="contact-note mono reveal">Usually replies within a day · India (IST)</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================================================
+       CAPABILITIES MARQUEE (decorative, GSAP-driven)
+  ============================================================ -->
+  <div class="capabilities-marquee" aria-hidden="true">
+    <div class="capabilities-track" data-marquee>
+      <div class="capabilities-group">
+        <span class="capabilities-item">Landing pages</span><span class="capabilities-dot"></span>
+        <span class="capabilities-item">Responsive layouts</span><span class="capabilities-dot"></span>
+        <span class="capabilities-item">CSS clean-ups</span><span class="capabilities-dot"></span>
+        <span class="capabilities-item">Dark mode</span><span class="capabilities-dot"></span>
+        <span class="capabilities-item">Accessibility</span><span class="capabilities-dot"></span>
+        <span class="capabilities-item">Deployment</span><span class="capabilities-dot"></span>
+      </div>
+      <div class="capabilities-group">
+        <span class="capabilities-item">Landing pages</span><span class="capabilities-dot"></span>
+        <span class="capabilities-item">Responsive layouts</span><span class="capabilities-dot"></span>
+        <span class="capabilities-item">CSS clean-ups</span><span class="capabilities-dot"></span>
+        <span class="capabilities-item">Dark mode</span><span class="capabilities-dot"></span>
+        <span class="capabilities-item">Accessibility</span><span class="capabilities-dot"></span>
+        <span class="capabilities-item">Deployment</span><span class="capabilities-dot"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="site-footer">
+    <div class="wrap-full">
+      <p class="footer-statement reveal">
+        A first web page, built in public — four sections, one dark-mode toggle
+        and a lot of curiosity. If you need a small, honest website, I'd love
+        to build it with you.
+      </p>
+      <div class="footer-cta reveal">
+        <a class="pill pill--accent" href="mailto:abdulkadar4416@gmail.com">
+          <span class="pill-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M13.5 4.5 12.43 5.54 18.11 11.25H3v1.5h15.11l-5.68 5.68L13.5 19.5 21 12l-7.5-7.5Z" fill="currentColor"/></svg>
+          </span>
+          <span>Say hello</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="wrap-wide footer-links">
+      <div class="footer-col">
+        <p class="footer-label">Pages</p>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <p class="footer-label">Services</p>
+        <ul>
+          <li><a href="#services">Landing pages</a></li>
+          <li><a href="#services">Responsive layouts</a></li>
+          <li><a href="#services">CSS clean-ups</a></li>
+          <li><a href="#services">Dark mode</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <p class="footer-label">Info</p>
+        <ul>
+          <li><span>ApnoAI internship</span></li>
+          <li><span>Batch · Nov 2026</span></li>
+          <li><span>India (IST)</span></li>
+          <li><span>Open to work</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="wrap-wide footer-connect">
+      <span class="footer-label">Connect</span>
+      <ul class="footer-connect-list">
+        <li><a href="mailto:abdulkadar4416@gmail.com">Email</a></li>
+        <!-- TODO: replace with your real GitHub profile link -->
+        <li><a href="https://github.com/" target="_blank" rel="noopener">GitHub</a></li>
+        <!-- TODO: replace with your real phone number -->
+        <li><a href="tel:+910000000000">Phone</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-credits">
+      <p>
+        Designed &amp; built by Syed Abdul Kadar<br />
+        ApnoAI Web Development Internship · Nov 2026<br />
+        © <span id="year">2026</span> All rights reserved.
+      </p>
+    </div>
+
+    <div class="footer-wordmark-wrap" aria-hidden="true">
+      <div class="footer-wordmark">abdulkadar</div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       SCRIPTS
+       GSAP + ScrollTrigger drive the reveals, parallax and intro.
+       Lenis adds smooth scrolling and is synced to ScrollTrigger.
+       react-bits ships as React components, so its effects
+       (Magnet, SpotlightCard, TiltedCard, ScrollVelocity) are
+       reimplemented in animations.js without a build step.
+       Everything degrades to the CSS/IntersectionObserver fallback.
+  ============================================================ -->
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.15.1/dist/gsap.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.15.1/dist/ScrollTrigger.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/lenis@1.3.27/dist/lenis.min.js"></script>
+  <script defer src="animations.js"></script>
+
+  <script>
+    (function () {
+      'use strict';
+
+      var root = document.documentElement;
+      var header = document.getElementById('site-header');
+      var menuToggle = document.getElementById('menu-toggle');
+      var menuPanel = document.getElementById('menu-panel');
+      var themeToggle = document.getElementById('theme-toggle');
+      var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      /* ---------- Theme (saved in localStorage) ---------- */
+      function applyTheme(theme) {
+        var isDark = theme !== 'light';
+        root.dataset.theme = isDark ? 'dark' : 'light';
+        themeToggle.setAttribute('aria-pressed', String(isDark));
+        themeToggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+        var meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) meta.setAttribute('content', isDark ? '#161616' : '#ffffff');
+      }
+
+      applyTheme(root.dataset.theme);
+
+      themeToggle.addEventListener('click', function () {
+        var next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+        applyTheme(next);
+        try { localStorage.setItem('theme', next); } catch (e) {}
+      });
+
+      /* ---------- Dropdown menu ---------- */
+      function menuHeight() {
+        return Math.min(menuPanel.scrollHeight, window.innerHeight - 64) + 'px';
+      }
+
+      function setMenu(open) {
+        header.classList.toggle('menu-open', open);
+        menuToggle.setAttribute('aria-expanded', String(open));
+        menuToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+        menuPanel.style.maxHeight = open ? menuHeight() : '0px';
+        window.dispatchEvent(new CustomEvent('apno:menu', { detail: { open: open } }));
+      }
+
+      menuToggle.addEventListener('click', function () {
+        setMenu(!header.classList.contains('menu-open'));
+      });
+
+      menuPanel.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () { setMenu(false); });
+      });
+
+      document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape' && header.classList.contains('menu-open')) {
+          setMenu(false);
+          menuToggle.focus();
+        }
+      });
+
+      document.addEventListener('click', function (event) {
+        if (header.classList.contains('menu-open') && !header.contains(event.target)) {
+          setMenu(false);
+        }
+      });
+
+      window.addEventListener('resize', function () {
+        if (header.classList.contains('menu-open')) {
+          menuPanel.style.maxHeight = menuHeight();
+        }
+      });
+
+      /* ---------- Reveal on scroll (fallback) ----------
+         animations.js upgrades this to GSAP ScrollTrigger when the CDN
+         libraries load. If they don't, this IntersectionObserver path runs
+         so content is never left hidden. */
+      function initReveals() {
+        var revealItems = document.querySelectorAll('.reveal');
+
+        if (reduceMotion || !('IntersectionObserver' in window)) {
+          revealItems.forEach(function (el) { el.classList.add('is-visible'); });
+          return;
+        }
+
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+        revealItems.forEach(function (el) { observer.observe(el); });
+      }
+
+      document.addEventListener('DOMContentLoaded', function () {
+        if (!window.__apnoAnimations) initReveals();
+      });
+
+      /* ---------- Hero: variable-font pointer response ---------- */
+      var hero = document.querySelector('[data-hero]');
+      var canHover = window.matchMedia('(pointer: fine)').matches;
+
+      if (hero && canHover && !reduceMotion) {
+        var frame = 0;
+        var latest = null;
+
+        hero.addEventListener('pointerenter', function () {
+          hero.classList.add('is-live');
+        });
+
+        hero.addEventListener('pointermove', function (event) {
+          latest = event;
+          if (frame) return;
+
+          frame = window.requestAnimationFrame(function () {
+            frame = 0;
+            if (!latest) return;
+            var rect = hero.getBoundingClientRect();
+            var x = Math.min(1, Math.max(0, (latest.clientX - rect.left) / rect.width));
+            var y = Math.min(1, Math.max(0, (latest.clientY - rect.top) / rect.height));
+            hero.style.setProperty('--hero-wdth', (100 + x * 51).toFixed(1));
+            hero.style.setProperty('--hero-wght', String(Math.round(700 + (1 - y) * 200)));
+          });
+        });
+
+        hero.addEventListener('pointerleave', function () {
+          hero.classList.remove('is-live');
+          hero.style.removeProperty('--hero-wdth');
+          hero.style.removeProperty('--hero-wght');
+        });
+      }
+
+      /* ---------- Footer year ---------- */
+      var year = document.getElementById('year');
+      if (year) year.textContent = new Date().getFullYear();
+    })();
+  </script>
+</body>
+</html>
